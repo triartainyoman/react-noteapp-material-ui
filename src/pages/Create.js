@@ -1,17 +1,29 @@
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
-import SendIcon from "@material-ui/icons/Send";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
+import { makeStyles } from "@material-ui/core";
 
 const Create = () => {
+  const useStyles = makeStyles({
+    btn: {
+      fontSize: 60,
+      backgroundColor: "violet",
+      "&:hover": {
+        backgroundColor: "blue",
+      },
+    },
+    title: {
+      textDecoration: "underline",
+    },
+  });
+
+  const classes = useStyles();
+
   return (
     <Container>
-      {/* <Typography variant="h1" color="primary" align="center">
-        Create a New Note
-      </Typography> */}
-
       <Typography
+        className={classes.title}
         color="textSecondary"
         variant="h6"
         component="h2"
@@ -22,9 +34,7 @@ const Create = () => {
       </Typography>
 
       <Button
-        onClick={() => {
-          console.log("You Clicked");
-        }}
+        className={classes.btn}
         type="submit"
         color="secondary"
         variant="contained"
@@ -34,14 +44,6 @@ const Create = () => {
       >
         Submit
       </Button>
-
-      {/* <br />
-      <AcUnitIcon />
-      <AcUnitIcon color="secondary" fontSize="large" />
-      <AcUnitIcon color="secondary" fontSize="small" />
-      <AcUnitIcon color="action" fontSize="small" />
-      <AcUnitIcon color="error" fontSize="small" />
-      <AcUnitIcon color="disabled" fontSize="small" /> */}
     </Container>
   );
 };
